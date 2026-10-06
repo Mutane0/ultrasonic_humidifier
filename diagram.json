@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Miikka",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-nano", "id": "nano", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -172.5,
+      "left": 90.6,
+      "attrs": { "humidity": "35", "temperature": "-9.4" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 127.94,
+      "left": 67.43,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "nano:2", "dht1:SDA", "green", [ "v0" ] ],
+    [ "oled1:GND", "nano:GND.1", "black", [ "v-28.8", "h28.8", "v-43.2" ] ],
+    [ "oled1:VCC", "nano:5V", "red", [ "v0" ] ],
+    [ "oled1:SCL", "nano:A5", "green", [ "v-19.2", "h-28.5", "v-52.8" ] ],
+    [ "oled1:SDA", "nano:A4", "green", [ "v-9.6", "h-47.93", "v-62.4" ] ],
+    [ "dht1:VCC", "nano:5V", "red", [ "h-134.4", "v105.6", "h154.1" ] ],
+    [ "dht1:GND", "nano:GND.1", "black", [ "h67.2", "v134.4", "h-57.1" ] ]
+  ],
+  "dependencies": {}
+}
