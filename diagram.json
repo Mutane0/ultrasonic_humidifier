@@ -3,13 +3,13 @@
   "author": "Miikka",
   "editor": "wokwi",
   "parts": [
-    { "type": "wokwi-arduino-nano", "id": "nano", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-arduino-nano", "id": "nano", "top": -4.8, "left": -0.5, "attrs": {} },
     {
       "type": "wokwi-dht22",
       "id": "dht1",
       "top": -172.5,
       "left": 90.6,
-      "attrs": { "humidity": "35", "temperature": "-9.4" }
+      "attrs": { "humidity": "35", "temperature": "38.4" }
     },
     {
       "type": "board-ssd1306",
@@ -17,6 +17,29 @@
       "top": 127.94,
       "left": 67.43,
       "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -157.2,
+      "left": 42.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -62.4,
+      "left": 37.85,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -105.7,
+      "left": -25.3,
+      "rotate": 90,
+      "attrs": { "color": "green", "xray": "1" }
     }
   ],
   "connections": [
@@ -25,8 +48,13 @@
     [ "oled1:VCC", "nano:5V", "red", [ "v0" ] ],
     [ "oled1:SCL", "nano:A5", "green", [ "v-19.2", "h-28.5", "v-52.8" ] ],
     [ "oled1:SDA", "nano:A4", "green", [ "v-9.6", "h-47.93", "v-62.4" ] ],
-    [ "dht1:VCC", "nano:5V", "red", [ "h-134.4", "v105.6", "h154.1" ] ],
-    [ "dht1:GND", "nano:GND.1", "black", [ "h67.2", "v134.4", "h-57.1" ] ]
+    [ "dht1:VCC", "nano:5V", "red", [ "v28.8", "h76.8", "v76.8", "h-57.6" ] ],
+    [ "dht1:GND", "nano:GND.2", "black", [ "v57.6" ] ],
+    [ "nano:3", "r1:2", "green", [ "v0" ] ],
+    [ "r1:1", "led1:A", "green", [ "h0" ] ],
+    [ "led1:C", "nano:GND.2", "green", [ "v96", "h67.6" ] ],
+    [ "btn1:2.r", "nano:4", "green", [ "v38.6", "h95.8" ] ],
+    [ "btn1:1.r", "nano:GND.2", "green", [ "v29", "h105.6" ] ]
   ],
   "dependencies": {}
 }
