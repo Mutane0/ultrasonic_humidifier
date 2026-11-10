@@ -18,13 +18,7 @@
       "left": 67.43,
       "attrs": { "i2cAddress": "0x3c" }
     },
-    {
-      "type": "wokwi-led",
-      "id": "led1",
-      "top": -157.2,
-      "left": 42.2,
-      "attrs": { "color": "red" }
-    },
+    { "type": "wokwi-led", "id": "led1", "top": -147.6, "left": 3.8, "attrs": { "color": "red" } },
     {
       "type": "wokwi-resistor",
       "id": "r1",
@@ -36,10 +30,64 @@
     {
       "type": "wokwi-pushbutton",
       "id": "btn1",
-      "top": -105.7,
-      "left": -25.3,
+      "top": -96.1,
+      "left": -82.9,
       "rotate": 90,
       "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": -153.6,
+      "left": -76.8,
+      "attrs": { "text": "Power\nButton" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text2",
+      "top": -201.6,
+      "left": 0,
+      "attrs": { "text": "Atomizer \nunit" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text3",
+      "top": -230.4,
+      "left": 96,
+      "attrs": { "text": "Humidity/\nTemp sensor" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn2",
+      "top": 14.6,
+      "left": -85.6,
+      "rotate": 180,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn3",
+      "top": 55.4,
+      "left": -86.4,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    { "type": "wokwi-text", "id": "text4", "top": 19.2, "left": -105.6, "attrs": { "text": "+" } },
+    { "type": "wokwi-text", "id": "text5", "top": 57.6, "left": -105.6, "attrs": { "text": "-" } },
+    { "type": "wokwi-slide-switch", "id": "sw1", "top": -101.2, "left": 223.9, "attrs": {} },
+    {
+      "type": "wokwi-text",
+      "id": "text6",
+      "top": -163.2,
+      "left": 211.2,
+      "attrs": { "text": "Water level\nSensor" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": 15.6, "left": 301.4, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-text",
+      "id": "text7",
+      "top": -28.8,
+      "left": 297.6,
+      "attrs": { "text": "Solenoid\nvalve" }
     }
   ],
   "connections": [
@@ -50,11 +98,19 @@
     [ "oled1:SDA", "nano:A4", "green", [ "v-9.6", "h-47.93", "v-62.4" ] ],
     [ "dht1:VCC", "nano:5V", "red", [ "v28.8", "h76.8", "v76.8", "h-57.6" ] ],
     [ "dht1:GND", "nano:GND.2", "black", [ "v57.6" ] ],
-    [ "nano:3", "r1:2", "green", [ "v0" ] ],
+    [ "nano:3", "r1:2", "green", [ "v-19.2", "h-38.4" ] ],
     [ "r1:1", "led1:A", "green", [ "h0" ] ],
     [ "led1:C", "nano:GND.2", "green", [ "v96", "h67.6" ] ],
-    [ "btn1:2.r", "nano:4", "green", [ "v38.6", "h95.8" ] ],
-    [ "btn1:1.r", "nano:GND.2", "green", [ "v29", "h105.6" ] ]
+    [ "btn1:2.r", "nano:4", "green", [ "v29", "h153.4" ] ],
+    [ "btn1:1.r", "nano:GND.2", "green", [ "v19.4", "h163.2" ] ],
+    [ "btn2:2.l", "nano:5", "green", [ "v-10", "h144" ] ],
+    [ "btn2:1.l", "nano:GND.2", "green", [ "h0" ] ],
+    [ "btn3:1.r", "nano:6", "green", [ "h10.4", "v-48", "h124.8" ] ],
+    [ "btn3:2.r", "nano:GND.2", "green", [ "v-28.4", "h183.2" ] ],
+    [ "led2:A", "nano:8", "green", [ "v19.2", "h-268.8" ] ],
+    [ "led2:C", "nano:GND.1", "green", [ "v9.6", "h-172.4" ] ],
+    [ "nano:7", "sw1:2", "green", [ "v-19.2", "h172.7" ] ],
+    [ "sw1:3", "nano:GND.1", "green", [ "v134.4", "h-105.4" ] ]
   ],
   "dependencies": {}
 }
