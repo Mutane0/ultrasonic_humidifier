@@ -159,7 +159,7 @@ void readSensor(){
 void atomizerController(){
 if(humidity < targetHumidity && waterState == HIGH){
     digitalWrite(LED_PIN, HIGH); // LED turns on when humidity below desired limit
-  } else if (humidity > targetHumidity + 5){ // 5% hysteresis so atomizer doesn't toggle on/off repeatedly
+  } else if (humidity > targetHumidity + 5 || waterState == LOW){ // 5% hysteresis so atomizer doesn't toggle on/off repeatedly
     digitalWrite(LED_PIN, LOW); // LED turns off when humidity level is reached
   }
 }
